@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# bogorg.github.io
 
-## Project info
+The official website for bogorg - Making things work, weirdly.
 
-**URL**: https://lovable.dev/projects/a796a099-e0f5-47a6-bd39-e745589b1e12
+## About
 
-## How can I edit this code?
+bogorg is dedicated to the art of making things work in the weirdest possible way. We build strange, inefficient, and oddly satisfying solutions that still get the job done.
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Vite** - Build tool and dev server
+- **React** - UI framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **shadcn/ui** - UI components
+- **React Router** - Routing
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a796a099-e0f5-47a6-bd39-e745589b1e12) and start prompting.
+## Development
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18 or higher)
+- npm or pnpm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Follow these steps:
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4. Preview production build:
+   ```bash
+   npm run preview
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Deployment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+This site is deployed to GitHub Pages. The build output in the `dist` folder is automatically deployed.
+
+### Building for GitHub Pages
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. The `dist` folder contains the production build ready for deployment.
+
+3. Configure GitHub Pages to deploy from the `dist` folder.
+
+## Project Structure
+
+```
+bogorg.github.io/
+├── src/
+│   ├── components/     # React components
+│   │   ├── ui/        # shadcn/ui components
+│   │   └── NavLink.tsx
+│   ├── pages/         # Page components
+│   ├── hooks/         # Custom React hooks
+│   ├── lib/           # Utility functions
+│   ├── assets/        # Static assets
+│   ├── App.tsx        # Main app component
+│   └── main.tsx        # Entry point
+├── public/            # Public assets
+├── dist/              # Build output
+└── package.json       # Dependencies and scripts
 ```
 
-**Edit a file directly in GitHub**
+## Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Got a brilliantly terrible idea? We want to see it! Visit our [GitHub organization](https://github.com/bogorg) to contribute.
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Built with questionable decisions and a lot of fun.
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a796a099-e0f5-47a6-bd39-e745589b1e12) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2024 bogorg - Making things work, weirdly
