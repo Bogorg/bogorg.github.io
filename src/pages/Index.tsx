@@ -269,7 +269,7 @@ const Index = () => {
               size="lg"
               onClick={() =>
                 window.open(
-                  "https://github.com/Bogorg/Bogorg/issues/new?labels=JOIN%20THE%20ORG&title=I%20want%20to%20join%20bogorg&body=I%20want%20to%20add%20...",
+                  "https://github.com/Bogorg/.github/issues/new?labels=JOIN%20THE%20ORG&title=I%20want%20to%20join%20bogorg&body=Write%20a%20short%20note%20about%20what%20you%20want%20to%20add!",
                   "_blank"
                 )
               }
