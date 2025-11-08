@@ -3,14 +3,13 @@ import { Button } from "@/components/ui/button";
 import {
   Github,
   ExternalLink,
-  HardDrive,
   Globe,
   GitCommit,
   Lock,
   Code,
 } from "lucide-react";
-import bogorgLogo from "@/assets/bogorg-logo.svg";
 import { motion } from "motion/react";
+import BogorgLogo from "@/assets/BogorgLogo";
 
 const year = new Date().getFullYear();
 
@@ -20,14 +19,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 md:py-32">
         <div className="flex flex-col items-center text-center space-y-8">
-          <motion.img
-            src={bogorgLogo}
-            alt="Bogorg Logo"
-            className="w-32 h-32 md:w-40 md:h-40"
-            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          />
+          <BogorgLogo />
           <motion.h1
             className="text-5xl md:text-7xl font-bold text-foreground"
             initial={{ opacity: 0, y: 20 }}
