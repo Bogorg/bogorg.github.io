@@ -1,7 +1,18 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, HardDrive, Globe, GitCommit, Lock, Code } from "lucide-react";
-import bogorgLogo from "@/assets/bogorg-logo.png";
+import {
+  Github,
+  ExternalLink,
+  HardDrive,
+  Globe,
+  GitCommit,
+  Lock,
+  Code,
+} from "lucide-react";
+import bogorgLogo from "@/assets/bogorg-logo.svg";
+import { motion } from "motion/react";
+
+const year = new Date().getFullYear();
 
 const Index = () => {
   return (
@@ -9,167 +20,280 @@ const Index = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 md:py-32">
         <div className="flex flex-col items-center text-center space-y-8">
-          <img 
-            src={bogorgLogo} 
-            alt="Bogorg Logo" 
-            className="w-32 h-32 md:w-40 md:h-40 animate-fade-in"
+          <motion.img
+            src={bogorgLogo}
+            alt="Bogorg Logo"
+            className="w-32 h-32 md:w-40 md:h-40"
+            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           />
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground animate-fade-in">
-            bogorg
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl animate-fade-in">
-            The art of making things work in the weirdest possible way.
-          </p>
-          <p className="text-lg text-muted-foreground max-w-xl animate-fade-in">
-            We build strange, inefficient, and oddly satisfying solutions that still get the job done.
-          </p>
-          <Button 
-            size="lg" 
-            className="mt-4 animate-fade-in"
-            onClick={() => window.open('https://github.com/bogorg', '_blank')}
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Github className="mr-2" />
-            Visit our GitHub
-          </Button>
+            Bogorg
+          </motion.h1>
+          <motion.p
+            className="text-xl md:text-2xl text-muted-foreground max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            The art of making things work in the weirdest possible way.
+          </motion.p>
+          <motion.p
+            className="text-lg text-muted-foreground max-w-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            We build strange, inefficient, and oddly satisfying solutions that
+            still get the job done.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <Button
+              size="lg"
+              className="mt-4"
+              onClick={() => window.open("https://github.com/bogorg", "_blank")}
+            >
+              <Github className="mr-2" />
+              Visit our GitHub
+            </Button>
+          </motion.div>
         </div>
       </section>
 
       {/* Projects Section */}
       <section className="container mx-auto px-4 py-20 bg-muted/30">
-        <h2 className="text-4xl font-bold text-center mb-12">Our Projects</h2>
-        
+        <motion.h2
+          className="text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          Our Projects
+        </motion.h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <Card className="p-6 hover:shadow-lg transition-all hover:scale-105 cursor-pointer group"
-                onClick={() => window.open('https://github.com/bogorg/kvd', '_blank')}>
-            <div className="space-y-4">
-              <div className="flex items-start justify-between">
-                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                  KVD
-                </h3>
-                <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ y: -8 }}
+          >
+            <Card
+              className="p-6 hover:shadow-lg transition-shadow cursor-pointer group h-full"
+              onClick={() =>
+                window.open("https://github.com/bogorg/kvd", "_blank")
+              }
+            >
+              <div className="space-y-4">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                    KVD
+                  </h3>
+                  <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  A dumb Redis-compatible key-value database using Docker
+                  containers as storage
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">
+                    Go
+                  </span>
+                  <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">
+                    Docker
+                  </span>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">
-                A dumb Redis-compatible key-value database using Docker containers as storage
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">
-                  Go
-                </span>
-                <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">
-                  Docker
-                </span>
-              </div>
-            </div>
-          </Card>
+            </Card>
+          </motion.div>
 
           {/* Placeholder for future projects */}
-          <Card className="p-6 border-dashed flex items-center justify-center min-h-[200px]">
-            <p className="text-muted-foreground text-center">
-              More weird projects<br />coming soon...
-            </p>
-          </Card>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Card className="p-6 border-dashed flex items-center justify-center min-h-[200px] h-full">
+              <p className="text-muted-foreground text-center">
+                More weird projects
+                <br />
+                coming soon...
+              </p>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
       {/* Ideas Section */}
       <section className="container mx-auto px-4 py-20">
-        <h2 className="text-4xl font-bold text-center mb-12">Dumb Ideas We Love</h2>
+        <motion.h2
+          className="text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          Dumb Ideas We Love
+        </motion.h2>
         <div className="max-w-4xl mx-auto space-y-4">
-          <Card className="p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-3 mb-2">
-              <HardDrive className="h-5 w-5" />
-              <h3 className="text-lg font-semibold">File System as a Database</h3>
-            </div>
-            <p className="text-muted-foreground">
-              Each file is a row, directories are tables. Watch your filesystem cry.
-            </p>
-          </Card>
-          <Card className="p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-3 mb-2">
-              <Globe className="h-5 w-5" />
-              <h3 className="text-lg font-semibold">DNS as a Message Queue</h3>
-            </div>
-            <p className="text-muted-foreground">
-              Use TXT records to send messages. Slow, unreliable, beautiful chaos.
-            </p>
-          </Card>
-          <Card className="p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-3 mb-2">
-              <GitCommit className="h-5 w-5" />
-              <h3 className="text-lg font-semibold">Git Commits as a Chat App</h3>
-            </div>
-            <p className="text-muted-foreground">
-              Every message is a commit. Conversation history is literally git history.
-            </p>
-          </Card>
-          <Card className="p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-3 mb-2">
-              <Lock className="h-5 w-5" />
-              <h3 className="text-lg font-semibold">Blockchain for Todo Lists</h3>
-            </div>
-            <p className="text-muted-foreground">
-              Immutable tasks. Mining required to mark as complete. Peak inefficiency.
-            </p>
-          </Card>
-          <Card className="p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-3 mb-2">
-              <Code className="h-5 w-5" />
-              <h3 className="text-lg font-semibold">CSS as a Programming Language</h3>
-            </div>
-            <p className="text-muted-foreground">
-              Build logic using only CSS selectors and animations. No JavaScript allowed.
-            </p>
-          </Card>
+          {[
+            {
+              icon: Globe,
+              title: "DNS as a Message Queue",
+              description:
+                "Use TXT records to send messages. Slow, unreliable, beautiful chaos.",
+              delay: 0.1,
+            },
+            {
+              icon: GitCommit,
+              title: "Git Commits as a Chat App",
+              description:
+                "Every message is a commit. Conversation history is literally git history.",
+              delay: 0.2,
+            },
+            {
+              icon: Lock,
+              title: "Blockchain for Todo Lists",
+              description:
+                "Immutable tasks. Mining required to mark as complete. Peak inefficiency.",
+              delay: 0.3,
+            },
+            {
+              icon: Code,
+              title: "CSS as a Programming Language",
+              description:
+                "Build logic using only CSS selectors and animations. No JavaScript allowed.",
+              delay: 0.4,
+            },
+          ].map((idea, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idea.delay }}
+              whileHover={{ x: 8 }}
+            >
+              <Card className="p-6 hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-3 mb-2">
+                  <idea.icon className="h-5 w-5" />
+                  <h3 className="text-lg font-semibold">{idea.title}</h3>
+                </div>
+                <p className="text-muted-foreground">{idea.description}</p>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* Join Section */}
       <section className="container mx-auto px-4 py-20 bg-muted/30">
         <div className="max-w-3xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl font-bold">Join the Weird Side</h2>
-          <p className="text-xl text-muted-foreground">
+          <motion.h2
+            className="text-4xl font-bold"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            Join the Weird Side
+          </motion.h2>
+          <motion.p
+            className="text-xl text-muted-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             Got a brilliantly terrible idea? We want to see it!
-          </p>
+          </motion.p>
           <div className="grid md:grid-cols-3 gap-6 text-left">
-            <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-3">1. Have a Dumb Idea</h3>
-              <p className="text-sm text-muted-foreground">
-                The more inefficient and absurd, the better. Bonus points for making people ask "but why?"
-              </p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-3">2. Build It Anyway</h3>
-              <p className="text-sm text-muted-foreground">
-                Actually make it work. It should be terrible, but it should work.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-3">3. Share the Horror</h3>
-              <p className="text-sm text-muted-foreground">
-                Open a PR or create a new repo under bogorg. Let the world witness your creation.
-              </p>
-            </Card>
+            {[
+              {
+                title: "1. Have a Dumb Idea",
+                description:
+                  'The more inefficient and absurd, the better. Bonus points for making people ask "but why?"',
+                delay: 0.2,
+              },
+              {
+                title: "2. Build It Anyway",
+                description:
+                  "Actually make it work. It should be terrible, but it should work",
+                delay: 0.3,
+              },
+              {
+                title: "3. Share the Horror",
+                description:
+                  "Join the org by clicking the button below and submit your idea",
+                delay: 0.4,
+              },
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: step.delay }}
+                whileHover={{ y: -8 }}
+              >
+                <Card className="p-6 h-full">
+                  <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {step.description}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
           </div>
-          <div className="pt-4">
-            <Button 
+          <motion.div
+            className="pt-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <Button
               size="lg"
-              onClick={() => window.open('https://github.com/bogorg', '_blank')}
+              onClick={() =>
+                window.open(
+                  "https://github.com/Bogorg/Bogorg/issues/new?labels=JOIN%20THE%20ORG&title=I%20want%20to%20join%20bogorg&body=I%20want%20to%20add%20...",
+                  "_blank"
+                )
+              }
             >
               <Github className="mr-2" />
-              Start Contributing
+              Join Us
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="container mx-auto px-4 py-12 text-center text-muted-foreground">
-        <p>Built with questionable decisions and a lot of fun</p>
-        <p className="mt-2">© 2024 bogorg - Making things work, weirdly</p>
-      </footer>
+      <motion.footer
+        className="container mx-auto px-4 py-12 text-center text-muted-foreground"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <p>Built with questionable decisions, but at least we have fun</p>
+        <p className="mt-2">© {year} Bogorg - Making things work, weirdly</p>
+      </motion.footer>
     </div>
   );
 };
 
 export default Index;
-
